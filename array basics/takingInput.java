@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class takingInput {
     static void main(){
         // Create a Scanner object to read input from the keyboard
-        Scanner sc= new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         
         // Declare an integer array and allocate memory for exactly 5 integers
         int arr[] = new int[5];

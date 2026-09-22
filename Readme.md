@@ -1,4 +1,4 @@
-# ☕ Learning Java
+# ☕ Java-DSA
 
 A beginner-friendly Java learning repository covering core fundamentals through hands-on code examples. Each topic lives in its own folder with practical, well-commented demonstrations — every source file includes a structured header block summarizing the key concepts before the code.
 
@@ -7,7 +7,7 @@ A beginner-friendly Java learning repository covering core fundamentals through 
 ## 📁 Project Structure
 
 ```
-Learning Java/
+Java-DSA/
 ├── first program/
 │   └── Main.java                      # Hello World – entry point
 ├── variables/
@@ -42,6 +42,22 @@ Learning Java/
 │   ├── Pattern7.java                  # Inverted pyramid pattern
 │   ├── Pattern8.java                  # Hollow rectangle pattern
 │   └── Pattern9.java                  # Hollow right-angled triangle pattern
+├── array basics/
+│   ├── array.java                     # Array declaration, allocation & for-each traversal
+│   ├── takingInput.java               # Reading array elements from user via Scanner
+│   ├── array2d.java                   # 2D arrays, jagged arrays, max value in matrix
+│   └── practiceArrays.java            # Sum, product, max & min value problems
+├── string basics/
+│   └── string.java                    # String concatenation, length(), charAt()
+├── methods/
+│   ├── method.java                    # Defining & calling a void method
+│   ├── sumMethod.java                 # Method with parameters (printSum)
+│   ├── returnType.java                # void vs return-type methods
+│   ├── methodOverload.java            # Method overloading (same name, different params)
+│   ├── callByValue.java               # Pass-by-value for primitives
+│   ├── variableScoping.java           # Local vs class-level variable scope
+│   └── practice.java                  # Combined practice — all method concepts
+├── NOTES.md                           # Comprehensive study notes & handbook
 └── Readme.md
 ```
 
@@ -221,6 +237,84 @@ Prints a hollow staircase triangle:
 - First and last rows print solid stars
 - Middle rows print stars at the first and last positions with spaces inside
 
+### 9. Arrays — `array basics/`
+
+#### 9a. Array Basics — `array.java`
+Covers the fundamentals of 1D arrays:
+- **Declaration**: `int arr[];` — reserves a reference variable
+- **Allocation**: `arr = new int[5];` — allocates memory for 5 integers
+- **Initialization**: `int brr[] = {10, 20, 30};` — declare + fill in one step
+- **Traversal**: both standard `for` loop and `for-each` loop
+
+#### 9b. Array Input — `takingInput.java`
+Reading array elements from user input with `Scanner`:
+- Uses `arr.length` to dynamically control loop bounds
+- Prompts user for each index value
+- Demonstrates input + output flow for arrays
+
+#### 9c. 2D Arrays — `array2d.java`
+Introduces multi-dimensional arrays:
+- Declaration and initialization of 2D arrays
+- Nested loop traversal using `arr.length` (rows) and `arr[i].length` (columns)
+- Jagged arrays — rows with different column counts
+- Finding maximum value in a 2D array
+
+#### 9d. Array Practice — `practiceArrays.java`
+Common algorithmic problems on arrays:
+- Finding the **sum** of all elements
+- Finding the **product** of all elements
+- Finding the **maximum** value
+- Finding the **minimum** value
+
+### 10. Strings — `string basics/string.java`
+Introduces Java's `String` class:
+- **Concatenation** using `+` operator
+- **Length** with `.length()` method (note: method, not field like arrays)
+- **Character access** with `.charAt(index)` (no bracket indexing like `str[0]`)
+- Strings are **objects**, not primitives — and they are **immutable**
+
+### 11. Methods / Functions — `methods/`
+
+#### 11a. Basic Method — `method.java`
+Defining and calling a simple `void` method:
+- `static void printTableOf2()` — prints multiplication table of 2
+- Methods are called by name from `main`
+
+#### 11b. Method with Parameters — `sumMethod.java`
+Passing arguments to methods:
+- `static void printSum(int a, int b)` — accepts two integers and prints their sum
+- Parameters act as local variables inside the method
+
+#### 11c. Return Types — `returnType.java`
+Difference between `void` and return-type methods:
+- `void` methods perform actions but return nothing
+- `int`, `double`, `boolean`, etc. methods compute and return a value
+- Caller captures the result: `int result = add(5, 10);`
+
+#### 11d. Method Overloading — `methodOverload.java`
+Multiple methods sharing the same name but different parameter lists:
+- `add(int, int)` and `add(int, int, int)` — Java picks the correct one based on arguments
+- Also works with different parameter types (`display(int)` vs `display(String)`)
+
+#### 11e. Call by Value — `callByValue.java`
+Java passes primitives by value — a copy is made:
+- Changes inside the method do **not** affect the original variable
+- Demonstrates with `num = 5` → passed to `solve()` → modified inside → original remains `5`
+
+#### 11f. Variable Scoping — `variableScoping.java`
+Visibility and lifetime of variables:
+- **Class-level (static)** variables are accessible anywhere in the class
+- **Local** variables shadow class-level variables within their scope
+- The innermost scope always takes precedence
+
+#### 11g. Combined Practice — `practice.java`
+Comprehensive file combining all method concepts:
+- `void` methods, parameterized methods, return types
+- Boolean-returning methods (`isEven`)
+- Math utility methods (`calculatePercentage`, `getMaximum`)
+- Method overloading with different types
+- Call by value demonstration
+
 ---
 
 ## 🧠 Key Concepts Quick Reference
@@ -239,6 +333,15 @@ Prints a hollow staircase triangle:
 | Read input                 | `sc.nextInt()`                   | Requires `Scanner` import                |
 | BigInteger input           | `sc.nextBigInteger()`            | Requires `java.math.BigInteger` import   |
 | Boolean input              | `sc.nextBoolean()`               | Reads `true` or `false` from console     |
+| Array declaration          | `int[] arr = new int[5]`         | Fixed size, zero-initialized             |
+| Array length               | `arr.length`                     | Field — no parentheses                   |
+| String length              | `str.length()`                   | Method — with parentheses                |
+| String charAt              | `str.charAt(0)`                  | No bracket indexing for Strings          |
+| 2D array access            | `arr[row][col]`                  | Row-major order                          |
+| Method definition          | `static int add(int a, int b)`   | `static` allows calling without object   |
+| Method overloading         | Same name, different params      | Resolved at compile time                 |
+| Call by value              | Primitives pass a copy           | Original variable is never modified      |
+| Variable scoping           | Local shadows class-level        | Innermost scope wins                     |
 | If statement               | `if (x >= 10) { ... }`          | Block runs only when condition is true   |
 | If-else                    | `if (x) { ... } else { ... }`   | Provides an alternate path               |
 | If-else-if ladder          | `if ... else if ... else`        | First true branch executes               |
@@ -246,6 +349,7 @@ Prints a hollow staircase triangle:
 | Switch statement           | `switch (x) { case 1: ... }`    | Matches one value from many constants    |
 | Ternary operator           | `(cond) ? a : b`                 | Inline if-else for simple assignments    |
 | for loop                   | `for (int i=0; i<n; i++)`       | Fixed-count repetition                   |
+| for-each loop              | `for (int val : arr)`            | Cleaner when index not needed            |
 | break                      | `if (x==5) break;`              | Exits loop entirely                      |
 | continue                   | `if (x==5) continue;`           | Skips current iteration                  |
 | Solid rectangle pattern    | Nested loop, both run to `n`    | Rows × Columns grid of stars             |
@@ -282,6 +386,14 @@ java -cp out ifelseif
 # Example: Run a pattern printing file
 javac -d out "Pattern Printing/Pattern1.java"
 java -cp out Pattern1
+
+# Example: Run an array file
+javac -d out "array basics/takingInput.java"
+java -cp out takingInput
+
+# Example: Run a methods file
+javac -d out "methods/practice.java"
+java -cp out practice
 ```
 
 ---
@@ -296,9 +408,9 @@ java -cp out Pattern1
 - [x] Conditionals (if, if-else, if-else-if, nested if-else, switch, ternary)
 - [x] Loops (for, nested loops, break, continue)
 - [x] Pattern Printing (solid rectangle, fixed rectangle, triangle, parallelogram, inverted triangle, pyramid, inverted pyramid, hollow rectangle, hollow triangle)
-- [ ] Arrays
-- [ ] Strings
-- [ ] Methods / Functions
+- [x] Arrays (1D, 2D, jagged arrays, input, traversal, sum, product, min, max)
+- [x] Strings (concatenation, length, charAt)
+- [x] Methods / Functions (void, parameters, return types, overloading, call by value, scoping)
 - [ ] Object-Oriented Programming (Classes, Objects, Inheritance, Polymorphism)
 
 ---
