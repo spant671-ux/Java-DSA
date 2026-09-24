@@ -55,14 +55,14 @@ All conceptual explanations, syntax references, key rules, and quick-reference t
 
 Make sure you have **Java JDK** installed. Compile files into the `out` folder and run from there:
 
-```bash
+``bash
 # Compile & run any file
 javac -d out "folder name/FileName.java"
 java -cp out FileName
-```
+``
 
 ### Quick Examples:
-```bash
+``bash
 # Hello World
 javac -d out "firstProgram/Main.java"
 java -cp out Main
@@ -78,7 +78,7 @@ java -cp out takingInput
 # Methods
 javac -d out "methods/practice.java"
 java -cp out practice
-```
+``
 
 ---
 
