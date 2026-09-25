@@ -513,12 +513,82 @@ firstName[0]           // Compilation error!
 firstName.charAt(0)    // → 's'
 ```
 
+### String Immutability:
+Strings are **immutable** — you cannot modify individual characters of an existing String. However, you can **reassign** the variable to point to a completely new String object.
+
+```java
+String name = "Rana";
+
+// ❌ WRONG — Cannot modify characters in place
+name[0] = 'B';         // Compilation error! Strings are not char arrays.
+
+// ✅ CORRECT — Reassign to a new String object
+name = "Bana";         // 'name' now points to a new String "Bana"
+System.out.println(name);  // → "Bana"
+```
+
+> **What happens in memory**: `"Rana"` still exists in the String Pool — it is NOT modified. `name` simply points to the new object `"Bana"`. The old `"Rana"` becomes eligible for garbage collection if nothing else references it.
+
 ### String vs. Array Length:
 
 | | Syntax | Type |
 |---|---|---|
 | **Array** | `arr.length` | Field (no parentheses) |
 | **String** | `str.length()` | Method (with parentheses) |
+
+### StringBuilder — Mutable Strings
+
+Since `String` is immutable, every concatenation (`+`) creates a **new** String object. In loops, this is very inefficient because it creates many temporary objects.
+
+`StringBuilder` solves this by providing a **mutable** sequence of characters:
+
+```java
+StringBuilder sb = new StringBuilder("Hello");
+
+sb.append(" World");        // Modifies in place — no new object created
+sb.append("!");
+System.out.println(sb);     // → "Hello World!"
+```
+
+### Common StringBuilder Methods:
+
+| Method | Description | Example |
+|---|---|---|
+| `append(x)` | Adds to the end | `sb.append("!")` → `"Hello!"` |
+| `insert(index, x)` | Inserts at position | `sb.insert(5, ",")` → `"Hello, World"` |
+| `delete(start, end)` | Removes range [start, end) | `sb.delete(0, 6)` → `"World!"` |
+| `deleteCharAt(index)` | Removes single char | `sb.deleteCharAt(0)` |
+| `replace(start, end, str)` | Replaces range with new string | `sb.replace(0, 5, "Hi")` |
+| `reverse()` | Reverses the entire sequence | `sb.reverse()` → `"!dlroW olleH"` |
+| `charAt(index)` | Returns char at index | `sb.charAt(0)` → `'H'` |
+| `length()` | Returns current length | `sb.length()` → `12` |
+| `toString()` | Converts back to String | `String s = sb.toString()` |
+
+### Why Use StringBuilder Over String Concatenation?
+
+```java
+// ❌ INEFFICIENT — Creates a new String object every iteration (n objects total)
+String result = "";
+for (int i = 0; i < 1000; i++) {
+    result = result + i;    // New object each time!
+}
+
+// ✅ EFFICIENT — Modifies the same object in place (1 object total)
+StringBuilder sb = new StringBuilder();
+for (int i = 0; i < 1000; i++) {
+    sb.append(i);           // No new object — mutates in place
+}
+String result = sb.toString();
+```
+
+### String vs. StringBuilder vs. StringBuffer:
+
+| Feature | String | StringBuilder | StringBuffer |
+|---|---|---|---|
+| **Mutability** | Immutable | Mutable | Mutable |
+| **Thread Safety** | Yes (immutable) | No (not synchronized) | Yes (synchronized) |
+| **Performance** | Slowest for repeated modification | Fastest (no sync overhead) | Slower than StringBuilder |
+| **Use When** | Value won't change | Single-threaded string building | Multi-threaded string building |
 
 ---
 
