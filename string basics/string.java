@@ -2,13 +2,72 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class string{
-    static void main(){
 
-        String str = "My,name,is,Sans";
-        String[] words = str.split(",");
-        for(String word:words){
-            System.out.println(word);
+    static void printString(String str){
+        int n = str.length();
+        for(int i=0; i<n; i++){
+            char ch = str.charAt(i);
+            System.out.println(ch);
         }
+    }
+
+    static int getLengthofString(String str){
+        char[] arr = str.toCharArray();
+        int len = arr.length;
+        return len;
+    }
+
+    static int getVowelsCount(String str){
+        int count = 0;
+        for(int i = 0; i<str.length(); i++){
+            char ch = str.charAt(i);
+            if(ch=='a'||ch=='e'||ch=='i'|| ch=='o'||ch=='u'){
+                count++;
+            }
+        }
+        return count;
+    }
+
+    static String reverseString(String str){
+        String reverse = "";
+        int n = str.length();
+        for(int i=n-1; i>=0; i--){
+            char ch = str.charAt(i);
+            reverse = reverse + ch;
+        }
+        return reverse;
+    }
+
+    static boolean isPalindrome(String str){
+        String original = str;
+        String reverse = reverseString(original);
+        //compare both
+        for(int i = 0; i<original.length(); i++){
+            char ch1 = original.charAt(i);
+            char ch2 = reverse.charAt(i);
+            if(ch1!=ch2){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    static void main(){
+        printString("Hello");
+        System.out.println(getLengthofString("World"));
+        System.out.println(getVowelsCount("Hello"));
+        System.out.println(reverseString("where"));
+        System.out.println(isPalindrome("racecar"));
+
+//        String name = "sans";
+//        name = name.replace("s", "r");
+//        System.out.println(name);
+
+//        String str = "My,name,is,Sans";
+//        String[] words = str.split(",");
+//        for(String word:words){
+//            System.out.println(word);
+//        }
 
 //        String name = "Sans";
 //        char[] arr = name.toCharArray();
