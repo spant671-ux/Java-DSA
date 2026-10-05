@@ -590,6 +590,38 @@ String result = sb.toString();
 | **Performance** | Slowest for repeated modification | Fastest (no sync overhead) | Slower than StringBuilder |
 | **Use When** | Value won't change | Single-threaded string building | Multi-threaded string building |
 
+### Common String Practice Problems:
+
+1. **Print All Characters**:
+   ```java
+   for (int i = 0; i < str.length(); i++) {
+       System.out.println(str.charAt(i));
+   }
+   ```
+2. **Find Length Without `.length()`**:
+   ```java
+   int len = str.toCharArray().length;
+   ```
+3. **Count Vowels**:
+   ```java
+   int count = 0;
+   for (int i = 0; i < str.length(); i++) {
+       char ch = str.charAt(i);
+       if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') count++;
+   }
+   ```
+4. **Reverse a String**:
+   ```java
+   String rev = "";
+   for (int i = str.length() - 1; i >= 0; i--) {
+       rev += str.charAt(i);
+   }
+   ```
+5. **Palindrome Check**:
+   ```java
+   boolean isPalindrome = str.equals(reverseString(str));
+   ```
+
 ---
 
 ## 11. Methods / Functions
