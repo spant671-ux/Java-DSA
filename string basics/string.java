@@ -4,13 +4,35 @@ import java.util.Scanner;
 public class string{
     static void main(){
 
+        String str = "My,name,is,Sans";
+        String[] words = str.split(",");
+        for(String word:words){
+            System.out.println(word);
+        }
+
+//        String name = "Sans";
+//        char[] arr = name.toCharArray();
+//        for(char ch: arr){
+//            System.out.println("Value of char:" +ch);
+//        }
+//        String name = "hello Sans bye";
+//        System.out.println(name.startsWith("hello"));
+//        System.out.println(name.endsWith("Sans"));
+
+//        int num = 5123;
+//        String str = String.valueOf(num);
+//        System.out.println(num+1);
+//        System.out.println(str+1);
+//        String str = "My name is Sans";
+//        System.out.println(str.substring(3, 7));
+//        System.out.println(str.contains("love"));
         //empty -> length = 0
         //blank -> empty or spaces
 
-        String name = "sans";
-        System.out.println(name.toUpperCase());
-        String name2 = "SANS";
-        System.out.println(name2.toLowerCase());
+//        String name = "sans";
+//        System.out.println(name.toUpperCase());
+//        String name2 = "SANS";
+//        System.out.println(name2.toLowerCase());
 //        String str = "";
 //        System.out.println(str.length());
 //        System.out.println(str.isEmpty());
