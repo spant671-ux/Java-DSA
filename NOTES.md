@@ -16,6 +16,7 @@ A neat, structured companion covering core concepts, internal mechanisms, and pr
 9. [Arrays](#9-arrays)
 10. [Strings](#10-strings)
 11. [Methods / Functions](#11-methods--functions)
+12. [Basic Maths for DSA](#12-basic-maths-for-dsa)
 
 ---
 
@@ -24,7 +25,7 @@ A neat, structured companion covering core concepts, internal mechanisms, and pr
 Every Java program begins with a **class** and a **main method**. The JVM looks for the `main` method as the entry point.
 
 ```java
-public class Main {
+public class Hello {
     public static void main(String[] args) {
         System.out.println("Hello World!");
     }
@@ -743,6 +744,73 @@ static void main() {
 | **Class-level (static)** | Anywhere in the class | Entire program |
 | **Method-level (local)** | Only inside the method | Until method returns |
 | **Block-level** (`for`, `if`) | Only inside the block | Until block ends |
+
+---
+
+## 12. Basic Maths for DSA
+
+Fundamental mathematical algorithms and number-theoretic properties commonly required in coding interviews and problem-solving.
+
+### 1. Digit Extraction & Manipulation
+- **Modulo 10 (`n % 10`)**: Extracts the last digit (e.g., `53127 % 10 = 7`).
+- **Division by 10 (`n / 10`)**: Strips the last digit (e.g., `53127 / 10 = 5312`).
+- **Digit Count Formula**: `(int) Math.log10(n) + 1` or iterative division in $O(\log_{10} n)$.
+- **Reversing a Number**:
+  ```java
+  int rev = 0;
+  while (num != 0) {
+      rev = (rev * 10) + (num % 10);
+      num /= 10;
+  }
+  ```
+
+### 2. Palindrome Number
+A number is a palindrome if it equals its reverse:
+- Compare `originalNum == reverseNum(originalNum)`.
+- Note: Negative numbers cannot be palindromes (e.g., `-121` reversed is `121-`).
+
+### 3. Prime Number Testing ($O(\sqrt{N})$ Optimization)
+A number is prime if it is greater than 1 and has no positive divisors other than 1 and itself.
+- **Why $\sqrt{N}$?**: Divisors come in pairs $(a, b)$ such that $a \times b = N$. If both $a > \sqrt{N}$ and $b > \sqrt{N}$, then $a \times b > N$. Thus, at least one divisor must be $\le \sqrt{N}$.
+- **Loop Condition**: `i * i <= num` (avoids slow floating-point square root calculations).
+```java
+static boolean isPrime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
+```
+
+### 4. Greatest Common Divisor (GCD / HCF)
+**Euclidean Algorithm**:
+$$\gcd(a, b) = \gcd(b, a \pmod b) \quad \text{until } b = 0, \text{ where } \gcd = a$$
+- **Time Complexity**: $O(\log(\min(a, b)))$ (Lamé's theorem).
+```java
+static int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+```
+
+### 5. Least Common Multiple (LCM)
+From the Fundamental Theorem of Arithmetic:
+$$a \times b = \gcd(a, b) \times \text{lcm}(a, b) \implies \text{lcm}(a, b) = \frac{a \times b}{\gcd(a, b)}$$
+
+### 6. Armstrong (Narcissistic) Number
+A 3-digit number where the sum of the cubes of its digits equals the number:
+$$d_1^3 + d_2^3 + d_3^3 = \text{num}$$
+- Examples: `153 = 1 + 125 + 27 = 153`, `370`, `371`, `407`.
+
+### 7. Perfect Number
+A positive integer that equals the sum of its positive proper divisors (excluding itself):
+- Divisors of 28: 1, 2, 4, 7, 14 $\rightarrow 1 + 2 + 4 + 7 + 14 = 28$.
+- **$O(\sqrt{N})$ Check**: When `num % i == 0`, add both `i` and `num / i` (avoid double-counting when $i = num / i$).
 
 ---
 

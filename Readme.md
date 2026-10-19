@@ -30,6 +30,7 @@ All conceptual explanations, syntax references, key rules, and quick-reference t
 9. **Arrays** – 1D & 2D arrays, jagged arrays, traversal, user input, and common problems (sum, product, min, max).
 10. **Strings** – `String` object basics, concatenation, `.length()` vs `.length`, `.charAt()`, immutability.
 11. **Methods / Functions** – `void` & return-type methods, parameters, overloading, call by value, variable scoping.
+12. **Basic Maths for DSA** – Digits extraction, count, sum, reversal, palindrome, prime $O(\sqrt{N})$, GCD (Euclidean), LCM, Armstrong, and Perfect numbers.
 
 ---
 
@@ -37,7 +38,7 @@ All conceptual explanations, syntax references, key rules, and quick-reference t
 
 | # | Folder | Files | Description | Key Learnings |
 |---|---|---|---|---|
-| 01 | [`firstProgram`](./firstProgram) | `Main.java` | Classic Hello World — entry point | Class structure, `public static void main`, `println` |
+| 01 | [`firstProgram`](./firstProgram) | `Hello` | Classic Hello World — entry point | Class structure, `public static void main`, `println` |
 | 02 | [`variables`](./variables) | `variables.java` | Variable rules & naming | Declaration vs. assignment vs. initialization, `camelCase` |
 | 03 | [`datatypes`](./datatypes) | `datatypes.java` | All 8 primitive data types | `int`, `float`, `double`, `char`, `boolean`, char arithmetic |
 | 04 | [`operators`](./operators) | 6 files | Complete operator coverage | Arithmetic, assignment, relational, logical, unary, bitwise |
@@ -48,6 +49,7 @@ All conceptual explanations, syntax references, key rules, and quick-reference t
 | 09 | [`array basics`](./array%20basics) | 4 files | 1D & 2D array fundamentals | Declaration, input, traversal, jagged arrays, min/max/sum |
 | 10 | [`string basics`](./string%20basics) | `string.java` | String basics | Concatenation, `.length()`, `.charAt()`, immutability |
 | 11 | [`methods`](./methods) | 7 files | Methods & functions | `void`, return types, overloading, call by value, scoping |
+| 12 | [`basic maths for dsa`](./basic%20maths%20for%20dsa) | 11 files | Fundamental Math for DSA | Digit extraction, count, sum, reversal, palindrome, prime $O(\sqrt{N})$, GCD, LCM, Armstrong, Perfect numbers |
 
 ---
 
@@ -64,8 +66,8 @@ java -cp out FileName
 ### Quick Examples:
 ``bash
 # Hello World
-javac -d out "firstProgram/Main.java"
-java -cp out Main
+javac -d out "firstProgram/Hello.java"
+java -cp out Hello
 
 # Operators
 javac -d out "operators/arithmetic_operators.java"
@@ -103,6 +105,7 @@ java -cp out practice
 - [x] Arrays (1D, 2D, jagged arrays, input, traversal, sum, product, min, max)
 - [x] Strings (concatenation, length, charAt)
 - [x] Methods / Functions (void, parameters, return types, overloading, call by value, scoping)
+- [x] Basic Maths for DSA (digit extraction, count, sum, reversal, palindrome, prime, GCD, LCM, Armstrong, perfect numbers)
 - [ ] Object-Oriented Programming (Classes, Objects, Inheritance, Polymorphism)
 
 ---
